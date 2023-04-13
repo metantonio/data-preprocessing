@@ -19,11 +19,11 @@ X = np.array(ct.fit_transform(X)) #on multiple linear regression we don't need a
 print(X)
 
 # Splitting the dataset into the Training set and Test set
-from sklearn.model_selection import train_test_split #this class avoid dummy variable trap in multiple linear regression
+from sklearn.model_selection import train_test_split 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
 # Training the Multiple Linear Regression model on the Training set
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression #this class avoid dummy variable trap in multiple linear regression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
