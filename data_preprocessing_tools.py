@@ -7,7 +7,7 @@ import pandas as pd
 
 # Importing the dataset with the following column structure in Excel or .csv file:
 # Country   Age     Salary      Purchased
-dataset = pd.read_csv('Data.csv') # dataset will be a DataFrame created with pandas library's shorcut 'pd'
+dataset = pd.read_csv('Data.csv') # dataset will be a DataFrame created with pandas library's shortcut 'pd'
 # We need a matrix of features (independant variables) wich is gonna be used to predict vector values (dependant variable)
 #iloc() is a finder of indexes of rows and columns
 X = dataset.iloc[:, :-1].values #Matrix of features: contains Country Age and Salary. Taking all rows, and excluding the las column [: , :-1]
