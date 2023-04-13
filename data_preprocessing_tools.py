@@ -12,8 +12,8 @@ dataset = pd.read_csv('Data.csv') # dataset will be a DataFrame created with pan
 #iloc() is a finder of indexes of rows and columns
 X = dataset.iloc[:, :-1].values #Matrix of features: contains Country Age and Salary. Taking all rows, and excluding the las column [: , :-1]
 y = dataset.iloc[:, -1].values #Vector of values: contains Purchased column. Taking all rows and only the last column [: , -1]
-print(X)
-print(y)
+print("X: \n",X)
+print("y: \n",y)
 
 # Taking care of missing data
 from sklearn.impute import SimpleImputer
