@@ -16,9 +16,11 @@ print("X: \n",X) #output: [['France' 44.0 72000.0] ['Spain' 27.0 48000.0] ....]
 print("y: \n",y) #output: ['No' 'Yes' 'No' 'No' 'Yes' 'Yes' 'No' 'Yes' 'No' 'Yes']
 
 # Taking care of missing data
-from sklearn.impute import SimpleImputer
-imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
-imputer.fit(X[:, 1:3])
+# 1- one aproach is just ignore the row with the missing data
+# 2- another aproach is replace the row with the average of data
+from sklearn.impute import SimpleImputer #SimpleImputer is a class of sklearn library that will helps us replace missing data
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean') #instance that wilk take missing values for average (mean)
+imputer.fit(X[:, 1:3]) #applying imputer instance to matrix of features between columns Age, Salary (upper range is not taken, that's why is 3)
 X[:, 1:3] = imputer.transform(X[:, 1:3])
 print(X)
 
