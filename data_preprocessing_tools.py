@@ -53,6 +53,9 @@ print("y_train:\n",y_train)
 print("y_test:\n",y_test)
 
 # Feature Scaling
+# this will scale all features in the same scale
+# Xstand = (x - X_average)/(standard deviation(x))
+# Xnorm = (x - X_min) / (X_max - X_min)
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train[:, 3:] = sc.fit_transform(X_train[:, 3:])
