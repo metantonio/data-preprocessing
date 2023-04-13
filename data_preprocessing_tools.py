@@ -31,7 +31,7 @@ print("updated X: \n",X)
 # in a binary system, that's called One Hot Encoder. So there a listed 3 diferents countries, we need 3 binary columns 
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
-ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough') #transformers parameters need to know wich transform method, what kind of encoding, and indexes of Columns (could be a range). Remainder parameter is requiered to know what to do with others columns
 X = np.array(ct.fit_transform(X))
 print(X)
 # Encoding the Dependent Variable
