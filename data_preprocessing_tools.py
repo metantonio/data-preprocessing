@@ -32,13 +32,16 @@ print("updated X: \n",X)
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough') #transformers parameters need to know wich transform method, what kind of encoding, and indexes of Columns (could be a range). Remainder parameter is requiered to know what to do with others columns
-X = np.array(ct.fit_transform(X))
-print(X)
+X = np.array(ct.fit_transform(X)) #el método fit will be fiting and transforming the binary columns into the columns that is being transformed. ML models expect arrays, that's why we need a numpy array
+print("\n OneHotEncode X: \n",X)
+
+
 # Encoding the Dependent Variable
+# we need transform Yes and No into numbers
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
-y = le.fit_transform(y)
-print(y)
+y = le.fit_transform(y) # will enconde automatically any string in the dependant vector
+print("transformed dependant vector: \n",y)
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
