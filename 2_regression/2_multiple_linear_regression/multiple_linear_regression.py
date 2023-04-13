@@ -14,7 +14,7 @@ print(X)
 # Encoding categorical data
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
-ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough')
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough') #remember change the index of column if there are a categorical data
 X = np.array(ct.fit_transform(X))
 print(X)
 
