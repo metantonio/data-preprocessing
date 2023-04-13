@@ -21,8 +21,8 @@ print("y: \n",y) #output: ['No' 'Yes' 'No' 'No' 'Yes' 'Yes' 'No' 'Yes' 'No' 'Yes
 from sklearn.impute import SimpleImputer #SimpleImputer is a class of sklearn library that will helps us replace missing data
 imputer = SimpleImputer(missing_values=np.nan, strategy='mean') #instance that wilk take missing values for average (mean)
 imputer.fit(X[:, 1:3]) #applying imputer instance to matrix of features between columns Age, Salary (upper range is not taken, that's why is 3)
-X[:, 1:3] = imputer.transform(X[:, 1:3])
-print(X)
+X[:, 1:3] = imputer.transform(X[:, 1:3]) #replaced matrix of features with transformation of average
+print("updated X: \n",X)
 
 # Encoding categorical data
 # Encoding the Independent Variable
