@@ -9,7 +9,7 @@ import pandas as pd
 # Country   Age     Salary      Purchased
 dataset = pd.read_csv('Data.csv') # dataset will be a DataFrame created with pandas library's shortcut 'pd'
 # We need a matrix of features (independant variables) wich is gonna be used to predict vector values (dependant variable)
-#iloc() is a finder of indexes of rows and columns
+#iloc() is a finder of indexes of rows and columns, parameter can be ranges with :, or just indexes with integers numbers
 X = dataset.iloc[:, :-1].values #Matrix of features: contains Country Age and Salary. Taking all rows, and excluding the las column [: , :-1]
 y = dataset.iloc[:, -1].values #Vector of values: contains Purchased column. Taking all rows and only the last column [: , -1]
 print("X: \n",X)
