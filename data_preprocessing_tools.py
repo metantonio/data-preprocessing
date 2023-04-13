@@ -58,7 +58,8 @@ print("y_test:\n",y_test)
 # Xnorm = (x - X_min) / (X_max - X_min)
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
-X_train[:, 3:] = sc.fit_transform(X_train[:, 3:])
-X_test[:, 3:] = sc.transform(X_test[:, 3:])
+#standardisation is diferent with train Matrix of Features, and test Matrix of Features
+X_train[:, 3:] = sc.fit_transform(X_train[:, 3:]) # dont' aply SC to first 3 columns that are the OneHotEncode of country, fit:mean, transform:sc
+X_test[:, 3:] = sc.transform(X_test[:, 3:]) # only apply SC and not fit 
 print(X_train)
 print(X_test)
