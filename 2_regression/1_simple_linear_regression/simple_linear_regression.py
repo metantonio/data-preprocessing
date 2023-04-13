@@ -34,7 +34,7 @@ plt.show()
 
 # Visualising the Test set results
 plt.scatter(X_test, y_test, color = 'red') #red points will be associated with the real observation data
-plt.plot(X_train, regressor.predict(X_train), color = 'blue') #blue line is the regression prediction of ML
+plt.plot(X_train, regressor.predict(X_train), color = 'blue') #blue line is the regression prediction of ML. In simple linear regression will be the same use X_train or X_test
 plt.title('Salary vs Experience (Test set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
