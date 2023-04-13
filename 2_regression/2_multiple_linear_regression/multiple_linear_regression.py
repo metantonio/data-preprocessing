@@ -15,7 +15,7 @@ print(X)
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough') #remember change the index of column if there are a categorical data
-X = np.array(ct.fit_transform(X))
+X = np.array(ct.fit_transform(X)) #on multiple linear regression we don't need apply scaling features
 print(X)
 
 # Splitting the dataset into the Training set and Test set
