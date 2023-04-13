@@ -44,12 +44,13 @@ y = le.fit_transform(y) # will enconde automatically any string in the dependant
 print("transformed dependant vector: \n",y)
 
 # Splitting the dataset into the Training set and Test set
+# we need about 80% of data for training and 20% for testing, data is expected as array
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
-print(X_train)
-print(X_test)
-print(y_train)
-print(y_test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1) #random_state to get same split in not aleatory way
+print("X_train: \n",X_train)
+print("X_test:\n",X_test)
+print("y_train:\n",y_train)
+print("y_test:\n",y_test)
 
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
