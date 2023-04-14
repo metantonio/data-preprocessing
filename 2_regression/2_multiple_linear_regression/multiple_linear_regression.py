@@ -40,3 +40,8 @@ print("comparation: \n",np.concatenate((y_pred.reshape(len(y_pred),1), y_test.re
 # Making a single prediction of Profit (for example the profit of a startup with R&D Spend = 160000, Administration Spend = 130000, Marketing Spend = 300000 and State = 'California')
 print("\nA single prediction: \n",regressor.predict([[1, 0, 0, 160000, 130000, 300000]])) # The One Hot Enconder made [1,0,0] for California
 
+# Getting the final linear regression equation with the values of the coefficients
+print(regressor.coef_) #Coef of dummy variables and column variables
+print(regressor.intercept_) # Interception with Y axis
+
+print(f'Equation: \nProfit = {regressor.coef_[0]}×Dummy State 1 + ({regressor.coef_[1]})×Dummy State 2 + ({regressor.coef_[2]})×Dummy State 3 + ({regressor.coef_[3]})×R&D Spend + ({regressor.coef_[4]})×Administration + ({regressor.coef_[5]})×Marketing Spend + ({regressor.intercept_})')
