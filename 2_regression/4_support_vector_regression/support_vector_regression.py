@@ -29,8 +29,9 @@ from sklearn.svm import SVR
 regressor = SVR(kernel = 'rbf') #rbf is the gaussian RBF kernel for non linear (dataset) kernel. RBF is the most used
 regressor.fit(X, y)
 
-# Predicting a new result
-sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])).reshape(-1,1))
+# Predicting a new result (with the original y's scale) using inverse_transform
+predict_y = sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])).reshape(-1,1)) #reshape to avoid formatt error
+print("Prediction of y:\n", predict_y)
 
 # Visualising the SVR results
 plt.scatter(sc_X.inverse_transform(X), sc_y.inverse_transform(y), color = 'red')
