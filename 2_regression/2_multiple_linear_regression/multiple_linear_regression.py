@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
+# 50_Startups.csv are the 50 startups with data of expensives and incomes at differents states, and want to analyze behavior and how to maximize incomes
 dataset = pd.read_csv('50_Startups.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
@@ -24,7 +25,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 # Training the Multiple Linear Regression model on the Training set
 from sklearn.linear_model import LinearRegression #this class avoid dummy variable trap (adding dependant variables due to One Hot enconde) in multiple linear regression
-regressor = LinearRegression()
+regressor = LinearRegression() #this class will choose the best statistical P values that are significant for this model (between [-3:3]), so, don't have to worry for backward delete
 regressor.fit(X_train, y_train)
 
 # Predicting the Test set results
