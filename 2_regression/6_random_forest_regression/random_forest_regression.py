@@ -12,11 +12,12 @@ y = dataset.iloc[:, -1].values
 
 # Training the Random Forest Regression model on the whole dataset
 from sklearn.ensemble import RandomForestRegressor
-regressor = RandomForestRegressor(n_estimators = 10, random_state = 0)
+regressor = RandomForestRegressor(n_estimators = 10, random_state = 0) # n_estimators is the number of trees
 regressor.fit(X, y)
 
 # Predicting a new result
-regressor.predict([[6.5]])
+predict_y = regressor.predict([[6.5]])
+print("predict_y:\n",predict_y)
 
 # Visualising the Random Forest Regression results (higher resolution)
 X_grid = np.arange(min(X), max(X), 0.01)
