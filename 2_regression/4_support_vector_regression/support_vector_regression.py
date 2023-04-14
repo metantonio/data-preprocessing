@@ -9,19 +9,20 @@ import pandas as pd
 dataset = pd.read_csv('Position_Salaries.csv')
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
-print(X)
-print(y)
-y = y.reshape(len(y),1)
-print(y)
+print(X) #2D array
+print("y:\n",y) #1D array
+y = y.reshape(len(y),1) #reshaped vertically and into 2D array (10 rows, 1 column)
+print("y with reshape:\n",y)
 
-# Feature Scaling
+# Feature Scaling (in this model we don't split datase into test and training, bacause we want the correlation of all data)
 from sklearn.preprocessing import StandardScaler
+#features and result are in a very diferent scale and outside of [-3, 3] range, not dummy variables and as we are not in linear models, we need scale
 sc_X = StandardScaler()
 sc_y = StandardScaler()
 X = sc_X.fit_transform(X)
 y = sc_y.fit_transform(y)
-print(X)
-print(y)
+print("X after scaling:\n",X)
+print("y after scaling:\n",y)
 
 # Training the SVR model on the whole dataset
 from sklearn.svm import SVR
