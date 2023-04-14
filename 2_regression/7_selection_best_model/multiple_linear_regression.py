@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('ENTER_THE_NAME_OF_YOUR_DATASET_HERE.csv')
+dataset = pd.read_csv('Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
@@ -22,8 +22,9 @@ regressor.fit(X_train, y_train)
 # Predicting the Test set results
 y_pred = regressor.predict(X_test)
 np.set_printoptions(precision=2)
-print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+#print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
 # Evaluating the Model Performance
 from sklearn.metrics import r2_score
-r2_score(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+print("r2 of multiple linear regression: ", r2)
