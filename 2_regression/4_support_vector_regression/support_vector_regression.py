@@ -34,8 +34,9 @@ predict_y = sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])).re
 print("Prediction of y:\n", predict_y)
 
 # Visualising the SVR results
-plt.scatter(sc_X.inverse_transform(X), sc_y.inverse_transform(y), color = 'red')
-plt.plot(sc_X.inverse_transform(X), sc_y.inverse_transform(regressor.predict(X).reshape(-1,1)), color = 'blue')
+plt.scatter(sc_X.inverse_transform(X), sc_y.inverse_transform(y), color = 'red') #inverse to have original scale of dataset
+plt.scatter([[6.5]], sc_y.inverse_transform(regressor.predict(sc_X.transform([[6.5]])).reshape(-1,1)), color = 'green') #prediction value in plot
+plt.plot(sc_X.inverse_transform(X), sc_y.inverse_transform(regressor.predict(X).reshape(-1,1)), color = 'blue') # SVR with RFB regression
 plt.title('Truth or Bluff (SVR)')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
