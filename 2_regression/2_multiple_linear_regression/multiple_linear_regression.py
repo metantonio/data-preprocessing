@@ -25,7 +25,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 # Training the Multiple Linear Regression model on the Training set
 from sklearn.linear_model import LinearRegression #this class avoid dummy variable trap (adding dependant variables due to One Hot enconde) in multiple linear regression
-regressor = LinearRegression() #this class will choose the best statistical P values that are significant for this model (between [-3:3]), so, don't have to worry for backward delete
+regressor = LinearRegression() #this class will choose the best statistical P values that are significant for this model (between [-3:3]), so, don't have to worry for backward eliminatios
 regressor.fit(X_train, y_train)
 
 # Predicting the Test set results
