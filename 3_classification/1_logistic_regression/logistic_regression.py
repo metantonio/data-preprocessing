@@ -32,7 +32,7 @@ classifier = LogisticRegression(random_state = 0) #this class has a C parameter 
 classifier.fit(X_train, y_train)
 
 # Predicting a new result
-print(classifier.predict(sc.transform([[30,87000]])))
+print("Prediction:\n",classifier.predict(sc.transform([[30,87000]]))) #output: [0] means it will not buy
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
