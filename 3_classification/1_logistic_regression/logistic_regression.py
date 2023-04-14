@@ -41,9 +41,9 @@ print("concatenation prediction-real:\n",np.concatenate((y_pred.reshape(len(y_pr
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
-print("Confusion Matrix:\n",cm) #will show number of correct and incorrect predictions
+print("Confusion Matrix:\n",cm) #will show a matrix with correct true predictions, incorrect true predictions, correct false predictions, and incorrect false predictions. (Diagonal is de correct true and correct false)
 acurracy = accuracy_score(y_test, y_pred)
-print("acurracy:\n",acurracy)
+print("acurracy:\n",acurracy) #output: .89
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
