@@ -10,3 +10,5 @@ And a dependat variable:
 PE: Power Energy
 
 Data has been already data preprocessed: no missing data, no categorical data.
+
+The idea is to make the model that better fits to data and be able to predict the Power Energy given new data, have the better conditions with certain fixed parameters, etc...
