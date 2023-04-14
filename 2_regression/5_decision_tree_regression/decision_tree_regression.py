@@ -14,7 +14,7 @@ y = dataset.iloc[:, -1].values
 # we don't split dataset for training with desicion tree regression
 from sklearn.tree import DecisionTreeRegressor
 regressor = DecisionTreeRegressor(random_state = 0)
-regressor.fit(X, y)
+regressor.fit(X, y) # using this model has sense with higher multi-dimensional datasets
 
 # Predicting a new result
 predict_y = regressor.predict([[6.5]])
