@@ -12,7 +12,7 @@ y = dataset.iloc[:, -1].values
 
 # Training the Random Forest Regression model on the whole dataset
 from sklearn.ensemble import RandomForestRegressor
-regressor = RandomForestRegressor(n_estimators = 10, random_state = 0) # n_estimators is the number of trees
+regressor = RandomForestRegressor(n_estimators = 10, random_state = 0) # n_estimators is the number of decision trees
 regressor.fit(X, y)
 
 # Predicting a new result
