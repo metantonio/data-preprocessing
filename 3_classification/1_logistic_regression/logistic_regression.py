@@ -28,7 +28,7 @@ print(X_test)
 
 # Training the Logistic Regression model on the Training set
 from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression(random_state = 0)
+classifier = LogisticRegression(random_state = 0) #this class has a C parameter that is C=1 by default. It helps to prevent overfitting when C is closer to 0
 classifier.fit(X_train, y_train)
 
 # Predicting a new result
