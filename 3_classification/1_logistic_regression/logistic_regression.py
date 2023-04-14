@@ -1,4 +1,4 @@
-# Logistic Regression
+# Logistic Regression (Linear classifier)
 
 # Importing the libraries
 import numpy as np
