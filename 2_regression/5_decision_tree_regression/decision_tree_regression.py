@@ -1,4 +1,4 @@
-# Decision Tree Regression
+# Decision Tree Regression (this will divide dimensions into segments)
 
 # Importing the libraries
 import numpy as np
@@ -10,13 +10,15 @@ dataset = pd.read_csv('Position_Salaries.csv')
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
 
-# Training the Decision Tree Regression model on the whole dataset
+# Training the Decision Tree Regression model on the whole dataset (doesn't need scaling dataset)
+# we don't split dataset for training with desicion tree regression
 from sklearn.tree import DecisionTreeRegressor
 regressor = DecisionTreeRegressor(random_state = 0)
 regressor.fit(X, y)
 
 # Predicting a new result
-regressor.predict([[6.5]])
+predict_y = regressor.predict([[6.5]])
+print("predict_y:\n",predict_y)
 
 # Visualising the Decision Tree Regression results (higher resolution)
 X_grid = np.arange(min(X), max(X), 0.01)
