@@ -17,16 +17,16 @@ print("y with reshape:\n",y)
 # Feature Scaling (in this model we don't split datase into test and training, bacause we want the correlation of all data)
 from sklearn.preprocessing import StandardScaler
 #features and result are in a very diferent scale and outside of [-3, 3] range, not dummy variables and as we are not in linear models, we need scale
-sc_X = StandardScaler()
+sc_X = StandardScaler() # scaler that calculates mean and standard deviation of matrix of features
 sc_y = StandardScaler()
 X = sc_X.fit_transform(X)
-y = sc_y.fit_transform(y)
+y = sc_y.fit_transform(y) #expect 2D array
 print("X after scaling:\n",X)
 print("y after scaling:\n",y)
 
 # Training the SVR model on the whole dataset
 from sklearn.svm import SVR
-regressor = SVR(kernel = 'rbf')
+regressor = SVR(kernel = 'rbf') #rbf is the gaussian RBF kernel for non linear (dataset) kernel. RBF is the most used
 regressor.fit(X, y)
 
 # Predicting a new result
