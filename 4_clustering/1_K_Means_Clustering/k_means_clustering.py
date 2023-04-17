@@ -1,4 +1,4 @@
-# K-Means Clustering
+# K-Means Clustering (works with N-Dimensions)
 
 # Importing the libraries
 import numpy as np
