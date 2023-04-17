@@ -7,7 +7,9 @@ import pandas as pd
 
 # Importing the dataset
 dataset = pd.read_csv('Mall_Customers.csv')
-X = dataset.iloc[:, [3, 4]].values
+X = dataset.iloc[:, [3, 4]].values #all columns are features for clustering, i can forget some columns if i believe doesn't have impact, that's why i will keep annual income and spending score for teaching reasons
+
+#If i keeped 2 columns, i'll have a 2D cluster
 
 # Using the elbow method to find the optimal number of clusters
 from sklearn.cluster import KMeans
