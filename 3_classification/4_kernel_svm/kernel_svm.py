@@ -28,8 +28,8 @@ print(X_test)
 
 # Training the Kernel SVM model on the Training set
 from sklearn.svm import SVC
-classifier = SVC(kernel = 'rbf', random_state = 0)
-classifier.fit(X_train, y_train)
+classifier = SVC(kernel = 'rbf', random_state = 0) #is implementing a higher dimension
+classifier.fit(X_train, y_train) #non linear classifier
 
 # Predicting a new result
 print(classifier.predict(sc.transform([[30,87000]])))
