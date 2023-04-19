@@ -17,7 +17,7 @@ plt.xlabel('Customers')
 plt.ylabel('Euclidean distances')
 plt.show()
 
-# Training the Hierarchical Clustering model on the dataset (Selected the longest cluster distance that perpendicular line cuts most of clusters)
+# Training the Hierarchical Clustering model on the dataset (Selected the longest cluster distance that perpendicular line cuts most of clusters => cuts 5 clusters)
 from sklearn.cluster import AgglomerativeClustering
 hc = AgglomerativeClustering(n_clusters = 5, affinity = 'euclidean', linkage = 'ward')
 y_hc = hc.fit_predict(X)
