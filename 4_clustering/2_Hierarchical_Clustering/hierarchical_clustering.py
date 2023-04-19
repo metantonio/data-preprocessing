@@ -11,7 +11,7 @@ X = dataset.iloc[:, [3, 4]].values
 
 # Using the dendrogram to find the optimal number of clusters
 import scipy.cluster.hierarchy as sch
-dendrogram = sch.dendrogram(sch.linkage(X, method = 'ward'))
+dendrogram = sch.dendrogram(sch.linkage(X, method = 'ward')) #ward is the method of minum variance for aglomering clusters.
 plt.title('Dendrogram')
 plt.xlabel('Customers')
 plt.ylabel('Euclidean distances')
