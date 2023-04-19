@@ -10,8 +10,8 @@ import pandas as pd
 # Data Preprocessing
 dataset = pd.read_csv('Market_Basket_Optimisation.csv', header = None)
 transactions = []
-for i in range(0, 7501):
-  transactions.append([str(dataset.values[i,j]) for j in range(0, 20)])
+for i in range(len(dataset)):
+  transactions.append([str(dataset.values[i,j]) for j in range(0, 20)]) #sabía de antemano que habían 20 columnas
 
 # Training the Apriori model on the dataset
 from apyori import apriori
@@ -21,7 +21,8 @@ rules = apriori(transactions = transactions, min_support = 0.003, min_confidence
 
 ## Displaying the first results coming directly from the output of the apriori function
 results = list(rules)
-results
+#results
+#print(results)
 
 ## Putting the results well organised into a Pandas DataFrame
 def inspect(results):
@@ -34,7 +35,7 @@ def inspect(results):
 resultsinDataFrame = pd.DataFrame(inspect(results), columns = ['Left Hand Side', 'Right Hand Side', 'Support', 'Confidence', 'Lift'])
 
 ## Displaying the results non sorted
-resultsinDataFrame
+print("non sorted:\n",resultsinDataFrame)
 
 ## Displaying the results sorted by descending lifts
-resultsinDataFrame.nlargest(n = 10, columns = 'Lift')
+print("sorted:\n",resultsinDataFrame.nlargest(n = 10, columns = 'Lift'))
