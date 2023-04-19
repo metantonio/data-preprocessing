@@ -16,13 +16,20 @@ for i in range(len(dataset)):
 # Training the Apriori model on the dataset
 from apyori import apriori
 rules = apriori(transactions = transactions, min_support = 0.003, min_confidence = 0.2, min_lift = 3, min_length = 2, max_length = 2)
+#parameters:
+## transactions: need transactions list
+## min_support: % of product repeated at least 3 times per day in 1 week = 3*7/7500 = 0.003
+## min_confidence: % of rules that you have confidence, start in 0.8 and going down until have some relevants rules.
+## min_lift: 3
+## min_length: Number of elements in the left side that need to be to make a rule
+## max_length: Number of elementos in the right side given N products at the left side.
 
 # Visualising the results
 
 ## Displaying the first results coming directly from the output of the apriori function
 results = list(rules)
 #results
-#print(results)
+print("results rules:\n",results)
 
 ## Putting the results well organised into a Pandas DataFrame
 def inspect(results):
