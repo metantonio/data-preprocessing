@@ -41,7 +41,7 @@ X_test = sc.transform(X_test)
 # Part 2 - Building the ANN
 
 # Initializing the ANN
-ann = tf.keras.models.Sequential()
+ann = tf.keras.models.Sequential() # With TensorFlow 2.0, Keras is now a module of it.
 
 # Adding the input layer and the first hidden layer
 ann.add(tf.keras.layers.Dense(units=6, activation='relu'))
