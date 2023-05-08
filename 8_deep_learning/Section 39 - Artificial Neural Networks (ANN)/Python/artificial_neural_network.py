@@ -87,7 +87,7 @@ So, should we say goodbye to that customer?
 Solution:
 """
 
-print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
+print("\nPredictions of new_client: ",ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
 
 """
 Therefore, our ANN model predicts that this customer stays in the bank!
@@ -98,7 +98,7 @@ Important note 2: Notice also that the "France" country was not input as a strin
 # Predicting the Test set results
 y_pred = ann.predict(X_test)
 y_pred = (y_pred > 0.5)
-print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+print("predictions of test results:\n",np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix, accuracy_score
@@ -106,4 +106,4 @@ cm = confusion_matrix(y_test, y_pred)
 print(cm)
 accuracy_score(y_test, y_pred)
 accuracy = accuracy_score(y_test, y_pred)
-print("\nacurracy: ", acurracy)
+print("\nacurracy: ", accuracy)
