@@ -29,7 +29,7 @@ print(corpus)
 
 # Creating the Bag of Words model
 from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer(max_features = 1500) #Max number of columns. Remember that in English, there are 20.000 words that are common used. But we don't need all of them in this case
+cv = CountVectorizer(max_features = 1566) #Max number of columns. Remember that in English, there are 20.000 words that are common used. But we don't need all of them in this case
 X = cv.fit_transform(corpus).toarray() # Creation of the Matrix of Features, that must be a 2D array
 y = dataset.iloc[:, -1].values # Dependant vector, all rows and just last column
 
