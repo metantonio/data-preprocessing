@@ -10,7 +10,7 @@ dataset = pd.read_csv('Ads_CTR_Optimisation.csv')
 
 # Implementing Thompson Sampling (Probabilistic Solutions)
 import random
-N = 10000 # Number of users that we are showing ads consecutivly
+N = 10000 # Number of users that we are showing ads consecutivly. We can try with all data to be deterministic, but the idea is try over the march, so with few data as 10% of total
 d = 10 # Number of Ads to show
 ads_selected = []
 
