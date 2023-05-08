@@ -10,10 +10,10 @@ dataset = pd.read_csv('Restaurant_Reviews.tsv', delimiter = '\t', quoting = 3) #
 
 # Cleaning the texts
 import re
-import nltk
+import nltk # natural preprocessing langugage library, to prevent 'stop words' that do not impact in the review
 nltk.download('stopwords')
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
+from nltk.corpus import stopwords # importing downloades stopwords
+from nltk.stem.porter import PorterStemmer # stem module, make a steamming process where root of a word is taken, no matter conjugation
 corpus = []
 for i in range(0, 1000):
   review = re.sub('[^a-zA-Z]', ' ', dataset['Review'][i])
