@@ -12,27 +12,27 @@ print(tf.__version__)
 dataset = pd.read_csv('Churn_Modelling.csv')
 X = dataset.iloc[:, 3:-1].values # Matrix of Features X, look that some columns that do not have impact on result were deleted
 y = dataset.iloc[:, -1].values #
-print(X)
-print(y)
+print("Matrix of Features X: \n",X)
+print("Vector of Values y: \n",y)
 
 # Encoding categorical data
 # Label Encoding the "Gender" column
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
-X[:, 2] = le.fit_transform(X[:, 2])
-print(X)
-# One Hot Encoding the "Geography" column
+X[:, 2] = le.fit_transform(X[:, 2]) # Randomly, Female was encoded as 0, and Male as 1
+print("Matrix of Features X with encoded Gender:\n",X)
+# One Hot Encoding the "Geography" column (because it's not a binary option, we need One Hot Enconding)
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
-ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [1])], remainder='passthrough')
+ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [1])], remainder='passthrough') # CHanged the index of column to 1, that is Geography column
 X = np.array(ct.fit_transform(X))
-print(X)
+print("Matrix of Features X with encoded Geography: \n",X)
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0) # Split data, 80% training, 20% testing
 
-# Feature Scaling
+# Feature Scaling (always implement with ANN)
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
