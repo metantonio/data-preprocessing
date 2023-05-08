@@ -1,4 +1,4 @@
-# Thompson Sampling
+# Thompson Sampling (more powerful than Upper Confidence Bound)
 
 # Importing the libraries
 import numpy as np
