@@ -87,8 +87,8 @@ So, should we say goodbye to that customer?
 Solution:
 """
 
-print("\nPredictions of new_client: ",ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
-
+print("\nProbability of client to leave: ",ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
+print("\nTrue or False that client will leave: ",ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
 """
 Therefore, our ANN model predicts that this customer stays in the bank!
 Important note 1: Notice that the values of the features were all input in a double pair of square brackets. That's because the "predict" method always expects a 2D array as the format of its inputs. And putting our values into a double pair of square brackets makes the input exactly a 2D array.
