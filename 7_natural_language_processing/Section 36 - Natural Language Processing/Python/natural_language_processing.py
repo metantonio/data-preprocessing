@@ -67,4 +67,4 @@ new_review = ' '.join(new_review)
 new_corpus = [new_review]
 new_X_test = cv.transform(new_corpus).toarray()
 new_y_pred = classifier.predict(new_X_test)
-print("Review: ",new_review,"\nPrediction of new review: ", new_y_pred)
+print("New Review Cleaned: ",new_review,"\nPrediction of new review: ", new_y_pred)
