@@ -16,14 +16,14 @@ from nltk.corpus import stopwords # importing downloades stopwords
 from nltk.stem.porter import PorterStemmer # stem module, make a steamming process where root of a word is taken, no matter conjugation. Helps to reduce dimensions
 corpus = [] # Will be a list with cleaned reviews
 for i in range(0, len(dataset)):
-  review = re.sub('[^a-zA-Z]', ' ', dataset['Review'][i]) #removing al punctuations
-  review = review.lower()
-  review = review.split()
-  ps = PorterStemmer()
+  review = re.sub('[^a-zA-Z]', ' ', dataset['Review'][i]) #removing al punctuations and replaced by space
+  review = review.lower() # Converted to lower case
+  review = review.split() # Every work is now an element of a list
+  ps = PorterStemmer() # Call the instance
   all_stopwords = stopwords.words('english')
   all_stopwords.remove('not')
-  review = [ps.stem(word) for word in review if not word in set(all_stopwords)]
-  review = ' '.join(review)
+  review = [ps.stem(word) for word in review if not word in set(all_stopwords)] # Remember that review is a list. Only add words that not are in the stopword list
+  review = ' '.join(review) # Make a long string instead of a list
   corpus.append(review)
 print(corpus)
 
