@@ -50,7 +50,7 @@ ann.add(tf.keras.layers.Dense(units=6, activation='relu')) # relu: linear rectif
 ann.add(tf.keras.layers.Dense(units=6, activation='relu'))
 
 # Adding the output layer
-ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid'))
+ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid')) # Sigmoid function, it's probabilistic. So, can be more useful than Thereshold function that returns 1 or 0
 
 # Part 3 - Training the ANN
 
