@@ -13,10 +13,10 @@ import re
 import nltk # natural preprocessing langugage library, to prevent 'stop words' that do not impact in the review
 nltk.download('stopwords')
 from nltk.corpus import stopwords # importing downloades stopwords
-from nltk.stem.porter import PorterStemmer # stem module, make a steamming process where root of a word is taken, no matter conjugation
-corpus = []
-for i in range(0, 1000):
-  review = re.sub('[^a-zA-Z]', ' ', dataset['Review'][i])
+from nltk.stem.porter import PorterStemmer # stem module, make a steamming process where root of a word is taken, no matter conjugation. Helps to reduce dimensions
+corpus = [] # Will be a list with cleaned reviews
+for i in range(0, len(dataset)):
+  review = re.sub('[^a-zA-Z]', ' ', dataset['Review'][i]) #removing al punctuations
   review = review.lower()
   review = review.split()
   ps = PorterStemmer()
