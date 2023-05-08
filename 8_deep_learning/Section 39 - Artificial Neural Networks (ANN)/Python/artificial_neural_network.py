@@ -86,9 +86,9 @@ So, should we say goodbye to that customer?
 
 Solution:
 """
-
-print("\nProbability of client to leave: ",ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
-print("\nTrue or False that client will leave: ",ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
+prediction_client = ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]]))
+print("\nProbability of client to leave: ",prediction_client)
+print("\nTrue or False that client will leave: ",prediction_client > 0.5)
 """
 Therefore, our ANN model predicts that this customer stays in the bank!
 Important note 1: Notice that the values of the features were all input in a double pair of square brackets. That's because the "predict" method always expects a 2D array as the format of its inputs. And putting our values into a double pair of square brackets makes the input exactly a 2D array.
@@ -103,7 +103,7 @@ print("predictions of test results:\n",np.concatenate((y_pred.reshape(len(y_pred
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
+print("\nConfusion Matrix:\n",cm)
 accuracy_score(y_test, y_pred)
 accuracy = accuracy_score(y_test, y_pred)
-print("\nacurracy: ", accuracy)
+print("\nacurracy with test dataset: ", accuracy)
