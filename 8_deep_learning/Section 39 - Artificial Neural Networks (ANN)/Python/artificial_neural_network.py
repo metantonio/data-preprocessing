@@ -56,6 +56,8 @@ ann.add(tf.keras.layers.Dense(units=1, activation='sigmoid')) # Sigmoid function
 
 # Compiling the ANN
 ann.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+# optimizer: 'adam' best to stocastic gradient descent (better for avoid local minimun problems)
+# loss: for binary classication 'binary_crossentropy', other way 'categorical_crossentropy'
 
 # Training the ANN on the Training set
 ann.fit(X_train, y_train, batch_size = 32, epochs = 100)
