@@ -10,8 +10,8 @@ print(tf.__version__)
 
 # Importing the dataset
 dataset = pd.read_csv('Churn_Modelling.csv')
-X = dataset.iloc[:, 3:-1].values
-y = dataset.iloc[:, -1].values
+X = dataset.iloc[:, 3:-1].values # Matrix of Features X, look that some columns that do not have impact on result were deleted
+y = dataset.iloc[:, -1].values #
 print(X)
 print(y)
 
