@@ -3,7 +3,7 @@
 # Importing the libraries
 import numpy as np
 import pandas as pd
-import tensorflow as tf
+import tensorflow as tf # pip install tensorflow
 tf.__version__
 
 # Part 1 - Data Preprocessing
