@@ -51,4 +51,5 @@ print("Prediction: \n",np.concatenate((y_pred.reshape(len(y_pred),1), y_test.res
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
 print("Consufion Matrix: \n",cm)
-accuracy_score(y_test, y_pred)
+accuracy = accuracy_score(y_test, y_pred)
+print("accuracy: ", accuracy)
