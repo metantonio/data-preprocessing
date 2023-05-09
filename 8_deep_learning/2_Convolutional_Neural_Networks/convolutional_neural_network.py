@@ -55,7 +55,7 @@ cnn.add(tf.keras.layers.Dense(units=1, activation='sigmoid')) # For this example
 cnn.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
 # Training the CNN on the Training set and evaluating it on the Test set
-cnn.fit(x = training_set, validation_data = test_set, epochs = 25)
+cnn.fit(x = training_set, validation_data = test_set, epochs = 25) # Change epoch to 1 just to test this code
 
 # Part 4 - Making a single prediction
 
@@ -65,8 +65,9 @@ test_image = tf.keras.utils.load_img('dataset/test_set/cats/cat.4001.jpg', targe
 test_image = tf.keras.utils.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis = 0)
 result = cnn.predict(test_image)
-training_set.class_indices
-if result[0][0] == 1:
+training_set.class_indices # if print this
+print('indexes: ', training_set.class_indices) #will show {'cats': 0, 'dogs': 1}
+if result[0][0] == 1: #results[0] are the batch access, in this case only one batch and only one image is beeing predicted, results[0][0] is the prediction
     prediction = 'dog'
 else:
     prediction = 'cat'
