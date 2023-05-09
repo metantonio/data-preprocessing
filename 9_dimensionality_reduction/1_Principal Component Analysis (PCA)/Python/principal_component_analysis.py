@@ -1,5 +1,5 @@
 # Principal Component Analysis (PCA)
-
+# the idea is extract features that keep or explain the varianza very well (reduction of dimensions)
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,13 +18,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
+X_test = sc.transform(X_test) # Test set not supposed to be fitted
 
 # Applying PCA
 from sklearn.decomposition import PCA
-pca = PCA(n_components = 2)
+pca = PCA(n_components = 2) # We should try starting from 2 and going up if we need more
 X_train = pca.fit_transform(X_train)
-X_test = pca.transform(X_test)
+X_test = pca.transform(X_test) # Test set not supposed to be fitted
 
 # Training the Logistic Regression model on the Training set
 from sklearn.linear_model import LogisticRegression
@@ -35,8 +35,9 @@ classifier.fit(X_train, y_train)
 from sklearn.metrics import confusion_matrix, accuracy_score
 y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
-accuracy_score(y_test, y_pred)
+print("\nConfusion Matrix:\n",cm)
+acurracy = accuracy_score(y_test, y_pred)
+print("\nAcurracy = ",acurracy)
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
