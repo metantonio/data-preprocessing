@@ -13,6 +13,9 @@ col_range = col_end - col_start
 # Testing data:
 X_test = ['Male', 19, 15, 50]
 
+# Here starts
+# if X comes from array, should be trasnform into np array with: 
+# X = np.asarray(my_array)
 X = dataset.iloc[
     :, col_start:col_end
 ].values  # all columns are features for clustering, i can forget some columns if i believe doesn't have impact, that's why i will keep annual income and spending score for teaching reasons. Range do not include las column
