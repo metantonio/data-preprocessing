@@ -19,25 +19,31 @@ print("\nX: ", X) # X = [[1,2,3,...], [1,2,3....]]
 # Encoding categorical data
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
-for value in X[0]:
-    print(value)
-    if isinstance(value, str):
-        print("is string")
-        ct = ColumnTransformer(transformers=[("encoder", OneHotEncoder(), [0])], remainder="passthrough")  # remember change the index of column if there are a categorical data
-        X = np.array(
-            ct.fit_transform(X)
-        )  # on multiple linear regression we don't need apply scaling features
-        print("transformed matrix of features: \n", X)
+def one_hot_encoder(array2D):
+    loop = 0
+    for value in array2D[0]:
+        print(value, "loop: ", loop)
+        if isinstance(value, str):
+            print("is string")
+            ct = ColumnTransformer(transformers=[("encoder", OneHotEncoder(), [loop])], remainder="passthrough")  # remember change the index of column if there are a categorical data
+            X_temp = np.array(
+                ct.fit_transform(array2D)
+            )  # on multiple linear regression we don't need apply scaling features
+            print("transformed matrix of features: \n", X_temp)
 
-        # Feature Scaling (in this model we don't split datase into test and training, bacause we want the correlation of all data)
-        from sklearn.preprocessing import StandardScaler
+            # Feature Scaling (in this model we don't split datase into test and training, bacause we want the correlation of all data)
+            from sklearn.preprocessing import StandardScaler
 
-        # features and result are in a very diferent scale and outside of [-3, 3] range, not dummy variables and as we are not in linear models, we need scale
-        sc_X = (
-            StandardScaler()
-        )  # scaler that calculates mean and standard deviation of matrix of features
-        sc_y = StandardScaler()
-        X = sc_X.fit_transform(X)
+            # features and result are in a very diferent scale and outside of [-3, 3] range, not dummy variables and as we are not in linear models, we need scale
+            sc_X = (
+                StandardScaler()
+            )  # scaler that calculates mean and standard deviation of matrix of features
+            sc_y = StandardScaler()
+            X_temp = sc_X.fit_transform(X_temp)
+        loop = loop + 1
+    return X_temp
+        
+X = one_hot_encoder(X)
 print("X after scaling:\n", X)
 
 
@@ -58,6 +64,11 @@ plt.show()
 # Training the K-Means model on the dataset
 kmeans = KMeans(n_clusters=5, init="k-means++", random_state=42)
 y_kmeans = kmeans.fit_predict(X)
+print("X_kmeans: ",X, " , length: ", len(X))
+print("y_kmeans: ",y_kmeans, " , length:",len(y_kmeans))
+
+# Testing data:
+X_test = [['Male', 19, 15, 39]]
 
 # Visualising the clusters
 if col_range == 2:
