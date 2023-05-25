@@ -19,7 +19,7 @@ print("\nX: ", X) # X = [[1,2,3,...], [1,2,3....]]
 # Encoding categorical data
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
-def one_hot_encoder(array2D):
+def one_hot_encoder(array2D): # With featuring scale
     loop = 0
     for value in array2D[0]:
         print(value, "loop: ", loop)
