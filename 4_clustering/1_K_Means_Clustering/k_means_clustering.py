@@ -10,12 +10,15 @@ dataset = pd.read_csv("Mall_Customers.csv")
 col_start = 1
 col_end = 5
 col_range = col_end - col_start
+# Testing data:
+X_test = ['Male', 19, 15, 50]
+
 X = dataset.iloc[
     :, col_start:col_end
 ].values  # all columns are features for clustering, i can forget some columns if i believe doesn't have impact, that's why i will keep annual income and spending score for teaching reasons. Range do not include las column
 print("\nX: ", X) # X = [[1,2,3,...], [1,2,3....]]
 # If i keeped 2 columns, i'll have a 2D cluster
-
+X_original = X
 # Encoding categorical data
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
@@ -67,7 +70,12 @@ print("X_kmeans: ",X, " , length: ", len(X))
 print("y_kmeans: ",y_kmeans, " , length:",len(y_kmeans))
 
 # Testing data:
-X_test = [['Male', 19, 15, 39]]
+np.append(X_original, X_test)
+X_test = one_hot_encoder(X_original)
+# Predicting value:
+print("starting prediction:")
+y_kmeans_test = kmeans.fit_predict(X_test)
+print("\ny_kmeans_test prediction: ",y_kmeans_test[len(y_kmeans_test)-1])
 
 # Visualising the clusters
 if col_range == 2:
