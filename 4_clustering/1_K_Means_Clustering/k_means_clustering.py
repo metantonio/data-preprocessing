@@ -35,7 +35,7 @@ def one_hot_encoder(array2D): # With featuring scale
             X_temp = np.array(
                 ct.fit_transform(array2D)
             )  # on multiple linear regression we don't need apply scaling features
-            print("transformed matrix of features: \n", X_temp)            
+            #print("transformed matrix of features: \n", X_temp)            
         loop = loop + 1
     # Feature Scaling (in this model we don't split datase into test and training, bacause we want the correlation of all data)
     from sklearn.preprocessing import StandardScaler
