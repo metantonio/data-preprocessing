@@ -1,4 +1,5 @@
 # k-Fold Cross Validation
+# La idea es obtener los mejores hyper-parámetros automáticamente
 
 # Importing the libraries
 import numpy as np
@@ -29,8 +30,9 @@ classifier.fit(X_train, y_train)
 from sklearn.metrics import confusion_matrix, accuracy_score
 y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
-accuracy_score(y_test, y_pred)
+print("\nConsusion Matrix:", cm)
+acurracy = accuracy_score(y_test, y_pred)
+print("\nAcurracy = ",acurracy)
 
 # Applying k-Fold Cross Validation
 from sklearn.model_selection import cross_val_score
