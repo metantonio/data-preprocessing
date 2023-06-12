@@ -36,7 +36,7 @@ print("\nAcurracy = ",acurracy)
 
 # Applying k-Fold Cross Validation
 from sklearn.model_selection import cross_val_score #creamos 10 modelos de prueba para medir el rendimiento en todos
-accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10)
+accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10) #cv es el número de fold, o pruebas con data de test
 print("Accuracy of all: {:.2f} %".format(accuracies.mean()*100))
 print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
 
