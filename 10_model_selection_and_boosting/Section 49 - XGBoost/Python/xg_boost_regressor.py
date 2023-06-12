@@ -49,11 +49,38 @@ print("Accuracy after 10 folds: {:.2f} %".format(accuracies.mean()*100))
 print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
 
 from yellowbrick.regressor import residuals_plot
-from yellowbrick.regressor import prediction_error
+from yellowbrick.regressor import prediction_error, PredictionError, ResidualsPlot
 # Making the Prediction Error Plot
-print("\nPrediction Error Plot")
-print(prediction_error(regressor, X_train, y_train, X_test, y_test))
+#print("\nPrediction Error Plot")
+#print(prediction_error(regressor, X_train, y_train, X_test, y_test))
 
 # Making the Residuals Plot
-print("\nResiduals Plot")
-print(residuals_plot(regressor, X_train, y_train, X_test, y_test))
+#print("\nResiduals Plot")
+#print(residuals_plot(regressor, X_train, y_train, X_test, y_test))
+
+
+visualizer = PredictionError(regressor)
+# Ajustar y visualizar los datos de entrenamiento y prueba
+visualizer.fit(X_train, y_train)
+visualizer.score(X_test, y_test)
+# Guardar el gráfico en un archivo en lugar de mostrarlo
+plt.title('Prediction Error for XGBOOST')
+plt.xlabel('y')
+plt.ylabel('Ytest')
+plt.legend()
+plt.savefig('./prediction_error.png')
+
+# Clear the current figure
+plt.clf()
+
+# Crear el objeto del gráfico
+visualizer2 = ResidualsPlot(regressor)
+# Ajustar y visualizar los datos de entrenamiento y prueba
+visualizer2.fit(X_train, y_train)
+visualizer2.score(X_test, y_test)
+# Guardar el gráfico en un archivo en lugar de mostrarlo
+plt.title('Residuals for XGBOOST')
+plt.xlabel('Predicted Values')
+plt.ylabel('Residuals')
+plt.legend()
+plt.savefig('./residuals_plot.png')
