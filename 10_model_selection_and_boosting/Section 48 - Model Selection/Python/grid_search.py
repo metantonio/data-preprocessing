@@ -36,8 +36,8 @@ print("\nAcurracy = ",acurracy)
 # Applying k-Fold Cross Validation
 from sklearn.model_selection import cross_val_score
 accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10)
-print("Accuracy: {:.2f} %".format(accuracies.mean()*100))
-print("Standard Deviation: {:.2f} %".format(accuracies.std()*100))
+print("Accuracy k-fold: {:.2f} %".format(accuracies.mean()*100))
+print("Standard Deviation k-fold: {:.2f} %".format(accuracies.std()*100))
 
 # Applying Grid Search to find the best model and the best parameters
 from sklearn.model_selection import GridSearchCV
@@ -51,8 +51,8 @@ grid_search = GridSearchCV(estimator = classifier,
 grid_search.fit(X_train, y_train)
 best_accuracy = grid_search.best_score_
 best_parameters = grid_search.best_params_
-print("Best Accuracy: {:.2f} %".format(best_accuracy*100))
-print("Best Parameters:", best_parameters)
+print("Best Accuracy grid: {:.2f} %".format(best_accuracy*100))
+print("Best Parameters grid SVM:", best_parameters)
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
