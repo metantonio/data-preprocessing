@@ -1,5 +1,5 @@
-# Linear Discriminant Analysis (LDA)
-
+# Linear Discriminant Analysis (LDA) is supervised
+# is used to separate classes, basically clustering
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -22,8 +22,8 @@ X_test = sc.transform(X_test)
 
 # Applying LDA
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-lda = LDA(n_components = 2)
-X_train = lda.fit_transform(X_train, y_train)
+lda = LDA(n_components = 2) # Separate by two features, will make a 2D graphic possible
+X_train = lda.fit_transform(X_train, y_train) # As is supervised method, need y_train as dependat variable
 X_test = lda.transform(X_test)
 
 # Training the Logistic Regression model on the Training set
@@ -35,8 +35,9 @@ classifier.fit(X_train, y_train)
 from sklearn.metrics import confusion_matrix, accuracy_score
 y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
-accuracy_score(y_test, y_pred)
+print("\nConsusion Matrix:", cm)
+acurracy = accuracy_score(y_test, y_pred)
+print("\nAcurracy = ",acurracy)
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
