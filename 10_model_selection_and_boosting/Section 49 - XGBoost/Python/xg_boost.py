@@ -1,4 +1,4 @@
-# XGBoost
+# XGBoost (works for regression models and classification models)
 
 # Importing the libraries
 import numpy as np
@@ -14,8 +14,13 @@ y = dataset.iloc[:, -1].values
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
+# y_train must be encoded in a newer update XGBoost model before training it
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y_train = le.fit_transform(y_train)
+
 # Training XGBoost on the Training set
-from xgboost import XGBClassifier
+from xgboost import XGBClassifier #use XGBRegressor for regressor
 classifier = XGBClassifier()
 classifier.fit(X_train, y_train)
 
@@ -23,8 +28,9 @@ classifier.fit(X_train, y_train)
 from sklearn.metrics import confusion_matrix, accuracy_score
 y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
-accuracy_score(y_test, y_pred)
+print("\nConsusion Matrix:", cm)
+acurracy = accuracy_score(y_test, y_pred)
+print("\nAcurracy = ",acurracy)
 
 # Applying k-Fold Cross Validation
 from sklearn.model_selection import cross_val_score
