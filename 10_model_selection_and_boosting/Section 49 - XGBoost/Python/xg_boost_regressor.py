@@ -29,7 +29,10 @@ print("revisión linea 27")
 from sklearn.metrics import confusion_matrix, accuracy_score
 y_pred = regressor.predict(X_test)
 
+from sklearn.metrics import r2_score
 print(y_pred)
+r2 = r2_score(y_test, y_pred)
+print("r2 of polynomial regression: ", r2)
 
 # Applying k-Fold Cross Validation
 from sklearn.model_selection import cross_val_score
